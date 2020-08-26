@@ -1,0 +1,21 @@
+{
+    "args": {},
+    "data": "",
+    "files": {},
+    "form": {
+        "cs1": "custom1",
+        "cs2": "custom2"
+    },
+    "headers": {
+        "Accept": "application/json, text/javascript, */*; q=0.01",
+        "Accept-Encoding": "gzip, deflate",
+        "Accept-Language": "ja,en-US;q=0.8,en;q=0.6",
+        "Connection": "close",
+        "Content-Length": "23",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Host": "httpbin.org",
+        "Origin": "null"
+    },
+    "json": null,
+    "url": "http://httpbin.org/post"
+}
