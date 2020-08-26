@@ -149,16 +149,23 @@ namespace SampleMVC.Controllers
             return _context.Person.Any(e => e.Id == id);
         }
 
-        [HttpGet]
 
-        public ActionResult AjaxTest(string text)
+        public IActionResult AjaxTest(string text)
         {
             return View();
         }
 
+        [HttpGet]
+        public IActionResult GetTest(string text = "デフォルト")
+        {
+            System.Diagnostics.Debug.WriteLine(text);
 
+            System.Threading.Thread.Sleep(5000);
+
+            return Json(new { returnText = text });
+        }
         [HttpPost]
-        public ActionResult AjaxTest(Person entity)
+        public IActionResult AjaxTest(Person entity)
         {
             //パラメーターの確認
             var grade = entity.Id;
