@@ -32,6 +32,7 @@ namespace SampleMVC.Controllers
                 return NotFound();
             }
 
+            //データを取得してViewに渡している
             var person = await _context.Person
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (person == null)
@@ -72,6 +73,7 @@ namespace SampleMVC.Controllers
                 return NotFound();
             }
 
+            //データを取得してViewに渡している
             var person = await _context.Person.FindAsync(id);
             if (person == null)
             {
@@ -123,6 +125,7 @@ namespace SampleMVC.Controllers
                 return NotFound();
             }
 
+            //データを取得してViewに渡している
             var person = await _context.Person
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (person == null)
@@ -150,11 +153,20 @@ namespace SampleMVC.Controllers
         }
 
 
+
+
+
+
+
+
+
         public IActionResult AjaxTest(string text)
         {
             return View();
         }
 
+
+        //ajax用のコントローラー(GET)
         [HttpGet]
         public IActionResult GetTest(string text = "デフォルト")
         {
@@ -164,6 +176,8 @@ namespace SampleMVC.Controllers
 
             return Json(new { returnText = text });
         }
+
+        //ajax用のコントローラー(POST)
         [HttpPost]
         public IActionResult AjaxTest(Person entity)
         {
