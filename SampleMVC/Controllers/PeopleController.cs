@@ -21,7 +21,11 @@ namespace SampleMVC.Controllers
         // GET: People
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Person.ToListAsync());
+            var result = await _context.Person
+                .FromSqlRaw("SELECT * FROM PERSON")
+                .ToListAsync();
+            return View(result);
+            //return View(await _context.Person.ToListAsync());
         }
 
         // GET: People/Details/5
