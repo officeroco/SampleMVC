@@ -19,6 +19,7 @@ namespace SampleMVC.Controllers
         }
 
         // GET: People
+        //VIEW側の指定  @model IEnumerable<SampleMVC.Models.Person>
         public async Task<IActionResult> Index()
         {
             var result = await _context.Person
@@ -29,6 +30,7 @@ namespace SampleMVC.Controllers
         }
 
         // GET: People/Details/5
+        //VIEW側の指定  @model SampleMVC.Models.Person
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,9 +50,48 @@ namespace SampleMVC.Controllers
         }
 
         // GET: People/Create
+        //VIEW側の指定  @model SampleMVC.Models.Person
         public IActionResult Create()
         {
             return View();
+        }
+
+        // GET: People/Edit/5
+        //VIEW側の指定  @model SampleMVC.Models.Person
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            //データを取得してViewに渡している
+            var person = await _context.Person.FindAsync(id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+            return View(person);
+        }
+
+        // GET: People/Delete/5
+        //VIEW側の指定  @model SampleMVC.Models.Person
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            //データを取得してViewに渡している
+            var person = await _context.Person
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            return View(person);
         }
 
         // POST: People/Create
@@ -65,23 +106,6 @@ namespace SampleMVC.Controllers
                 _context.Add(person);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(person);
-        }
-
-        // GET: People/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            //データを取得してViewに渡している
-            var person = await _context.Person.FindAsync(id);
-            if (person == null)
-            {
-                return NotFound();
             }
             return View(person);
         }
@@ -121,25 +145,6 @@ namespace SampleMVC.Controllers
             return View(person);
         }
 
-        // GET: People/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            //データを取得してViewに渡している
-            var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-
-            return View(person);
-        }
-
         // POST: People/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -151,6 +156,11 @@ namespace SampleMVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// 引数のレコードが存在するか
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool PersonExists(int id)
         {
             return _context.Person.Any(e => e.Id == id);
