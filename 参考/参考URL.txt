@@ -1,0 +1,56 @@
+参考URL
+
+//jQuery日本語リファレンス
+http://js.studio-kingdom.com/
+
+//jQuery逆引きリファレンス
+https://www.buildinsider.net/web/jqueryref/059
+
+//jQueryで役に立つ情報
+https://uxmilk.jp/8813
+
+//MVCのフォルダ構成の説明等
+http://autodidact.hatenablog.com/entry/2017/04/11/204541
+
+
+//ASP.NET MVC : jQuery.ajaxを使った非同期処理
+https://qiita.com/lusf/items/fdcfc0396514f64adc67
+
+
+//CRUD(create,read,update,delete)処理を行う画面のコードをデータモデルを元にして自動生成する機能
+https://sys-guard.com/post-14485/
+
+//[PostgreSQL版] Entity Frameworkで世界が変わった
+https://hyp.llc/tips/program/entity-framework-install/
+
+
+//EntityFrameworkCoreでPostgreSQLを操作する
+https://qiita.com/stin_dev/items/70497c92cc0c90260c69
+
+
+
+====================================================================================================
+github
+ユーザー名：gf3t-oon@asahi-net.or.jp
+パスワード：@tomoyuki0
+
+
+・PostgreSQLでもA5:SQL Mk-2が使える。
+
+//EntityFrameworkCoreでのcontext自動実装(設定ファイルに修正後)するコマンド
+・dotnet ef dbcontext scaffold "Server=DESKTOP-V31VFQL;Database=testdb;Trusted_Connection=True;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>

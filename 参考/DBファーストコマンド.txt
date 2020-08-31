@@ -1,0 +1,8 @@
+・保存してあるcsprojファイルの内容をコピー
+・dotnet ef dbcontext scaffold "Server=DESKTOP-V31VFQL;Database=testdb;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
+
+
+突然動かなくなる時
+・VIEWとPeopleControllerのメソッドは一致しているか？
+・キャッシュはクリアしているか
